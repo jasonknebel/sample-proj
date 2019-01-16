@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample work for Church Pension Group. 
+This app is marketplace where users can purchase cellphones. Users are able to select the cellphones they want and pay for them when they go to checkout. This app uses Stripe's api to process charges. 
 
-Things you may want to cover:
+To deploy, run rails db:create db:migrate db:seed
 
-* Ruby version
+To test the payment feature, use credit card #4242-4242-4242-4242
 
-* System dependencies
+Gemfiles Used:
 
-* Configuration
+* devise
 
-* Database creation
+* stripe
 
-* Database initialization
+* bootstrap
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
