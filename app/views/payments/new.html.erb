@@ -1,0 +1,33 @@
+<div class='container'>
+  <ul>
+    <% @list.list_items.each do |f| %>
+      <li>
+        <%= f.item.name %>
+        $<%= f.item.price%>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= form_for @payment do |f| %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id='error_explanation'>
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class='amount'>
+        <span>Amount: $<%= @list.total_amount %></span>
+      </label>
+      <%= f.hidden_field :list_id, value: "#{@payment.list_id}" %>
+      <%= f.hidden_field :user_id, value: "#{@payment.user_id}" %>
+      <%= f.hidden_field :amount, value: "#{@payment.amount}" %>
+
+    </article>
+
+    <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+            data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
+            data-description='Cell phone purchase'
+            data-amount=<%= "#{@list.total_amount.to_s}00"%>
+            data-locale='auto'></script>
+  <% end %>
+</div>

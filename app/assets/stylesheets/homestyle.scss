@@ -1,0 +1,20 @@
+.card-display {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 40px;
+}
+
+.card {
+  width: 18rem;
+}
+
+.display-img {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.img-adj {
+  width: 50%;
+  height: 50%;
+}

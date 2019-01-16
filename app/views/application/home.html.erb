@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='card-display'>
+    <% @items.each do |f| %>
+      <div class="card">
+        <div class='display-img'>
+          <%= image_tag(f.photo_url, alt: 'card image', class: 'card-img-top img-adj')  %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= f.name %></h5>
+          <p class="card-text">
+            <%= f.description %>
+          </p>
+          <% if current_user %>
+            <%= link_to 'Add to Cart', lists_path(item: f), method: :post, class: 'btn btn-primary' %>
+          <% else %>
+            <%= link_to 'Purchase', new_user_session_path, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
